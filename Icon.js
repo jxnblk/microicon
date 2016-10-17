@@ -2,20 +2,8 @@
 const { createElement: h } = require('react')
 const { Icon: Reline } = require('reline')
 const Geomicon = require('react-geomicons').default
-const geomiconsPaths = require('geomicons-open')
-const geomiconsKeys = Object.keys(geomiconsPaths)
-
-const relines = [
-  'x',
-  'plus',
-  'minus',
-  'chevron',
-  'arrow',
-  'triangle',
-  'square',
-  'diamond',
-  'burger'
-]
+const geomiconsKeys = require('./geomicons-keys')
+const relineKeys = require('./reline-keys')
 
 const Icon = (props) => {
   const {
@@ -24,7 +12,7 @@ const Icon = (props) => {
     size = 16
   } = props
 
-  if (relines.includes(name)) {
+  if (relineKeys.includes(name)) {
     return h(Reline, Object.assign({}, props, {
       name,
       size,
