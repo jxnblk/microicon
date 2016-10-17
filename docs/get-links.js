@@ -7,7 +7,7 @@ const keys = [
   ...geomiconsKeys
 ]
 
-const domain = 'http://localhost:3000'
+const domain = 'https://icon.now.sh'
 
 const links = keys.map(key => {
   const url = `${domain}/${key}`
