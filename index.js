@@ -7,6 +7,26 @@ const Icon = require('./Icon')
 
 const doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
 
+const usage = `
+microicon
+
+SVG icon microservice
+
+Usage:
+https://icon.now.sh/chevron
+
+Size:
+https://icon.now.sh/chevron/32
+
+Color:
+https://icon.now.sh/chevron/ff0000
+
+Read more:
+https://github.com/jxnblk/microicon
+
+Made by jxnblk.com
+`
+
 const num = v => !isNaN(parseFloat(v)) ? parseFloat(v) : v
 
 const parseNumbers = obj => Object.keys(obj).reduce((a, key) => {
@@ -67,7 +87,7 @@ module.exports = (req, res) => {
   // console.log('params', params)
 
   if (!name) {
-    return 'microicon'
+    return usage
   }
 
   const svg = doctype + renderToStaticMarkup(
