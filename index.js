@@ -2,7 +2,8 @@
 const url = require('url')
 const { createElement } = require('react')
 const { renderToStaticMarkup } = require('react-dom/server')
-const { Icon } = require('reline')
+// const { Icon } = require('reline')
+const Icon = require('./Icon')
 
 const doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
 
@@ -25,7 +26,9 @@ const isHex = val => {
 const getParamKey = val => {
   const type = typeof val
   const n = num(val)
-  if (isHex(val)) {
+  if (!val.length) {
+    return null
+  } else if (isHex(val)) {
     return { color: '#' + val }
   } else if (!isNaN(n)) {
     return { size: n }
@@ -53,7 +56,10 @@ const parseUrl = url => {
 module.exports = (req, res) => {
   const { pathname, query } = url.parse(req.url, true)
   const [ , name ] = pathname.split('/')
-  const params = Object.assign({},
+  const params = Object.assign(
+    {
+      size: 16
+    },
     parseUrl(req.url),
     parseNumbers(query)
   )
