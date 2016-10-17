@@ -25,7 +25,7 @@ https://icon.now.sh/chevron/down
 
 (Only for Reline icons)
 
-https://icon.now.sh/chevron?strokeWidth=1
+https://icon.now.sh/chevron/?strokeWidth=1
 
 
 ## Icons
