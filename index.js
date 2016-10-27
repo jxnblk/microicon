@@ -4,8 +4,17 @@ const { createElement } = require('react')
 const { renderToStaticMarkup } = require('react-dom/server')
 // const { Icon } = require('reline')
 const Icon = require('./Icon')
+const relineKeys = require('./reline-keys')
+const geomiconsKeys = require('./geomicons-keys')
+const simpleKeys = Object.keys(require('./simple-icons'))
+const mdKeys = Object.keys(require('./material-design-icons'))
 
 const doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
+
+const iconsLength = relineKeys.length
+  + geomiconsKeys.length
+  + simpleKeys.length
+  + mdKeys.length
 
 const usage = `
 microicon
@@ -25,6 +34,27 @@ Read more:
 https://github.com/jxnblk/microicon
 
 Made by jxnblk.com
+
+${iconsLength} Icons:
+
+  Reline
+
+  ${relineKeys.join('\n  ')}
+
+
+  Geomicons
+
+  ${geomiconsKeys.join('\n  ')}
+
+
+  Material Design
+
+  ${mdKeys.join('\n  ')}
+
+
+  Simple Icons
+
+  ${simpleKeys.join('\n  ')}
 `
 
 const num = v => !isNaN(parseFloat(v)) ? parseFloat(v) : v
