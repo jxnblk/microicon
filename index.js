@@ -90,13 +90,15 @@ module.exports = (req, res) => {
     return usage
   }
 
-  const svg = doctype + renderToStaticMarkup(
+  const svg = renderToStaticMarkup(
     createElement(Icon, Object.assign({
       name,
     }, params))
   )
 
+  if (!svg.length) return 'No icon found for ' + name
+
   res.setHeader('Content-Type', 'image/svg+xml')
-  res.end(svg)
+  res.end(doctype + svg)
 }
 

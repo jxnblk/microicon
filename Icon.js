@@ -67,7 +67,7 @@ const Icon = (props) => {
     }))
   }
 
-  return h('span', {}, 'No icon found')
+  return null
 }
 
 module.exports = Icon
