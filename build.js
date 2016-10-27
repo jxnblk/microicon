@@ -4,6 +4,7 @@
 const fs = require('fs')
 const path = require('path')
 const cheerio = require('cheerio')
+const geomiconsKeys = require('./geomicons-keys')
 
 // Simple Icons
 const simpleDir = path.join(__dirname, 'node_modules', 'simple-icons#gh-pages', 'icons')
@@ -82,6 +83,10 @@ const mdPaths = mdKeys.reduce((a, key) => {
 
 const mdFlattened = Object.keys(mdPaths).reduce((a, key, i) => {
   const paths = Object.keys(mdPaths[key]).reduce((arr, k) => {
+    // Doesn't seem to work
+    if (geomiconsKeys.includes(k)) {
+      k = 'md_' + k
+    }
     arr.push({
       key: k,
       value: mdPaths[key][k]

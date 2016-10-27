@@ -5,15 +5,18 @@ const Geomicon = require('react-geomicons').default
 const geomiconsKeys = require('./geomicons-keys')
 const relineKeys = require('./reline-keys')
 const simplePaths = require('./simple-icons')
+const mdPaths = require('./material-design-icons')
 
 const simpleKeys = Object.keys(simplePaths)
+const mdKeys = Object.keys(mdPaths)
 
 const Simple = ({
   name,
   size,
   color
 }) => {
-  const d = simplePaths[name] || ''
+  const d = simplePaths[name]
+  if (!d) return null
 
   return (
     h('svg', {
@@ -35,6 +38,27 @@ const Simple = ({
   )
 }
 
+const MD = ({
+  name,
+  size,
+  color
+}) => {
+  const d = mdPaths[name]
+  if (!d) return null
+
+  return (
+    h('svg', {
+      xmlns: 'http://www.w3.org/2000/svg',
+      viewBox: '0 0 24 24',
+      width: size,
+      height: size,
+      fill: color
+    },
+      h('path', { d })
+    )
+  )
+}
+
 const Icon = (props) => {
   const {
     name,
@@ -52,6 +76,14 @@ const Icon = (props) => {
 
   if (relineKeys.includes(name)) {
     return h(Reline, Object.assign({}, props, {
+      name,
+      size,
+      color
+    }))
+  }
+
+  if (mdKeys.includes(name)) {
+    return h(MD, Object.assign({}, props, {
       name,
       size,
       color
