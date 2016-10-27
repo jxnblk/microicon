@@ -2,12 +2,13 @@
 const url = require('url')
 const { createElement } = require('react')
 const { renderToStaticMarkup } = require('react-dom/server')
-// const { Icon } = require('reline')
 const Icon = require('./Icon')
 const relineKeys = require('./reline-keys')
 const geomiconsKeys = require('./geomicons-keys')
 const simpleKeys = Object.keys(require('./simple-icons'))
 const mdKeys = Object.keys(require('./material-design-icons'))
+
+const Root = require('./landing/Root')
 
 const doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
 
@@ -104,6 +105,10 @@ const parseUrl = url => {
 }
 
 module.exports = (req, res) => {
+  if (/robots\.txt/.test(req.url)) {
+    return `User-agent: Twitterbot\n  Disallow:`
+  }
+
   const { pathname, query } = url.parse(req.url, true)
   const [ , name ] = pathname.split('/')
   const params = Object.assign(
@@ -114,10 +119,10 @@ module.exports = (req, res) => {
     parseNumbers(query)
   )
 
-  // console.log('params', params)
-
   if (!name) {
-    return usage
+    return renderToStaticMarkup(
+      createElement(Root)
+    )
   }
 
   const svg = renderToStaticMarkup(
