@@ -12,7 +12,7 @@ module.exports = ({
   h('html', { lang: 'en' },
     h(Head),
     h(Header),
-    h(Demo),
+    // h(Demo),
     h(Usage),
     h(IconList),
     h(Footer)

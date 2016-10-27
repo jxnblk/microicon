@@ -20,17 +20,15 @@ module.exports = () => {
   const icon = keys[i] || 'x'
 
   return (
-    h('section', {},
-      h('img', {
-        width: 96,
-        height: 96,
-        style: {
-          display: 'block'
-        },
-        src: `/${icon}/96`
-      }),
-      h(Pre, {}, icon)
-    )
+    h('img', {
+      width: 64,
+      height: 64,
+      style: {
+        display: 'block',
+        marginRight: 32
+      },
+      src: `/${icon}/64`
+    })
   )
 }
 
