@@ -5,6 +5,7 @@ const Header = require('./Header')
 const Demo = require('./Demo')
 const Usage = require('./Usage')
 const IconList = require('./IconList')
+const Footer = require('./Footer')
 
 module.exports = ({
 }) => (
@@ -13,7 +14,8 @@ module.exports = ({
     h(Header),
     h(Demo),
     h(Usage),
-    h(IconList)
+    h(IconList),
+    h(Footer)
   )
 )
 

@@ -1,14 +1,6 @@
 
 const { createElement: h } = require('react')
-
-const Pre = (props) => (
-  h('pre', Object.keys({}, props, {
-    style: {
-      fontFamily: 'Menlo, monospace',
-      fontSize: 14
-    }
-  }), props.children)
-)
+const Pre = require('./Pre')
 
 module.exports = () => (
   h('section', { id: 'usage' },
