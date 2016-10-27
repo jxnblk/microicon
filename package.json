@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "node build.js",
+    "postinstall": "napa danleech/simple-icons#gh-pages",
     "start": "./node_modules/micro/bin/micro -p 3000"
   },
   "keywords": [],
@@ -11,10 +13,14 @@
   "license": "MIT",
   "dependencies": {
     "micro": "^6.1.0",
+    "napa": "^2.3.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-geomicons": "^2.1.0",
     "react-simple-icons": "^1.0.0-beta.5",
     "reline": "^1.0.0-beta.3"
+  },
+  "devDependencies": {
+    "cheerio": "^0.22.0"
   }
 }
