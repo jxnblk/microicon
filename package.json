@@ -12,6 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "material-design-icons": "^3.0.1",
     "micro": "^6.1.0",
     "napa": "^2.3.0",
     "react": "^15.3.2",
