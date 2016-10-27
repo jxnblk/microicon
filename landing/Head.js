@@ -21,7 +21,7 @@ module.exports = () => (
     h('meta', { name: 'twitter:site', content: '@jxnblk' }),
     h('meta', { name: 'twitter:title', content: 'microicon' }),
     h('meta', { name: 'twitter:description', content: 'Icon placeholder microservice' }),
-    h('meta', { name: 'twitter:image', content: '' }),
+    h('meta', { name: 'twitter:image', content: '/card.png' }),
     h('style', {
       dangerouslySetInnerHTML: {
         __html: css

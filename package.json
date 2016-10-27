@@ -13,9 +13,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "datauri": "^1.0.4",
     "material-design-icons": "^3.0.1",
     "micro": "^6.1.0",
     "napa": "^2.3.0",
+    "pageres": "^4.2.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-geomicons": "^2.1.0",

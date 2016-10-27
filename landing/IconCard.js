@@ -21,7 +21,9 @@ module.exports = ({ name }) => (
       h('div', {
         style: {
           fontSize: 12,
-          marginTop: 8
+          paddingTop: 8,
+          paddingBottom: 8,
+          wordBreak: 'break-word'
         }
       }, name)
     )

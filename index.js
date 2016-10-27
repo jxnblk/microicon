@@ -9,6 +9,7 @@ const simpleKeys = Object.keys(require('./simple-icons'))
 const mdKeys = Object.keys(require('./material-design-icons'))
 
 const Root = require('./landing/Root')
+const card = require('./landing/card')
 
 const doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
 
@@ -107,6 +108,9 @@ const parseUrl = url => {
 module.exports = (req, res) => {
   if (/robots\.txt/.test(req.url)) {
     return `User-agent: Twitterbot\n  Disallow:`
+  }
+  if (/card\.png/.test(req.url)) {
+    return card(req, res)
   }
 
   const { pathname, query } = url.parse(req.url, true)
