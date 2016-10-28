@@ -10,6 +10,10 @@ module.exports = () => (
   },
     h('p', {},
       h('a', {
+        href: 'https://github.com/jxnblk/microicon'
+      }, 'GitHub'),
+      h('span', {}, ' '),
+      h('a', {
         href: 'http://jxnblk.com'
       }, 'Made by Jxnblk'),
       h('span', {}, ' '),

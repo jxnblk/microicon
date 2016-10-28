@@ -9,6 +9,10 @@ body {
   padding: 2rem;
 }
 a { color: #07c }
+summary:focus {
+  background-color: #f6f6f6;
+  outline: none;
+}
 `
 
 module.exports = () => (

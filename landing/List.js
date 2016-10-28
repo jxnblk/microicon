@@ -6,10 +6,11 @@ const mapChildren = children => (
   React.Children.map(children, (child) => (
     h('li', {
       style: {
+        boxSizing: 'border-box',
         display: 'inline-block',
         verticalAlign: 'top',
-        minWidth: '12em',
-        marginRight: '2em'
+        width: '7em',
+        paddingRight: '1em'
       }
     },
       React.cloneElement(child)
