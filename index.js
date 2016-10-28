@@ -1,6 +1,8 @@
 
+const fs = require('fs')
+const path = require('path')
 const url = require('url')
-const { createElement } = require('react')
+const { createElement: h } = require('react')
 const { renderToStaticMarkup } = require('react-dom/server')
 const Icon = require('./Icon')
 const relineKeys = require('./reline-keys')
@@ -106,6 +108,12 @@ const parseUrl = url => {
 }
 
 module.exports = (req, res) => {
+  if (/bundle\.js/.test(req.url)) {
+    res.setHeader('Content-Type', 'text/html')
+    fs.createReadStream(path.join(__dirname, 'bundle.js'))
+      .pipe(res)
+    return
+  }
   if (/robots\.txt/.test(req.url)) {
     return `User-agent: Twitterbot\n  Disallow:`
   }
@@ -124,13 +132,14 @@ module.exports = (req, res) => {
   )
 
   if (!name) {
-    return renderToStaticMarkup(
-      createElement(Root)
+    const html = renderToStaticMarkup(
+      h(Root)
     )
+    return html
   }
 
   const svg = renderToStaticMarkup(
-    createElement(Icon, Object.assign({
+    h(Icon, Object.assign({
       name,
     }, params))
   )
