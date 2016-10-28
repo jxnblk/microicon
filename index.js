@@ -109,7 +109,7 @@ const parseUrl = url => {
 
 module.exports = (req, res) => {
   if (/bundle\.js/.test(req.url)) {
-    res.setHeader('Content-Type', 'text/html')
+    res.writeHead(200, { 'Content-Type':  'text/html' })
     fs.createReadStream(path.join(__dirname, 'bundle.js'))
       .pipe(res)
     return
