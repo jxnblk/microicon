@@ -1,12 +1,12 @@
 {
   "name": "microicon",
-  "version": "1.0.0-b.0",
+  "version": "1.0.0-b.1",
   "description": "Icon placeholder microservice and node module",
   "main": "index.js",
   "scripts": {
     "build": "node build.js",
     "webpack": "webpack -p",
-    "postinstall": "napa danleech/simple-icons#gh-pages",
+    "prepublish": "napa danleech/simple-icons#gh-pages && npm run build",
     "start": "micro -p 3000 server/index.js",
     "dev": "nodemon --exec 'npm start'"
   },
@@ -41,6 +41,7 @@
   "now": {
     "alias": "icon.now.sh",
     "files": [
+      "build.js",
       "dist",
       "server"
     ]
