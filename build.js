@@ -42,8 +42,11 @@ const mdFiles = mdKeys.reduce((a, key) => {
 }, {})
 
 const getPath = $ => {
-  const d = $('path').attr('d')
-  return d
+  const paths = []
+  $('path').map((i, el) => {
+    paths.push($(el).attr('d'))
+  })
+  return paths.join(' ')
 }
 
 const getCircles = $ => {
@@ -57,15 +60,16 @@ const getCircles = $ => {
   return circles
 }
 
-const convertCircleToPath = circle => {
+const convertCircleToPath = (circle, i) => {
   const { cx, cy, r } = circle
   const x = cx
   const y1 = cy - r
   const y2 = cy + r
+  const direction = (i + 1) % 2
   return [
     'M', x, y1,
-    'A', r, r, 0, 0, 0, x, y2,
-    'A', r, r, 0, 0, 0, x, y1
+    'A', r, r, 0, 0, direction, x, y2,
+    'A', r, r, 0, 0, direction, x, y1
   ].join(' ')
 }
 
