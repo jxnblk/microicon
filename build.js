@@ -136,11 +136,6 @@ const mdFlattened = Object.keys(mdPaths).reduce((a, key, i) => {
 
 const mdJs = `module.exports = ${JSON.stringify(mdFlattened)}`
 
-const dist = path.join(__dirname, 'dist')
-if (!fs.existsSync(dist)) {
-  fs.mkdirSync(dist)
-}
-
-fs.writeFileSync('dist/simple-icons.js', simpleJs)
-fs.writeFileSync('dist/material-design-icons.js', mdJs)
+fs.writeFileSync('lib/simple-icons.js', simpleJs)
+fs.writeFileSync('lib/material-design-icons.js', mdJs)
 

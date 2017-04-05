@@ -42,6 +42,7 @@
     "alias": "icon.now.sh",
     "files": [
       "build.js",
+      "Icon.js",
       "dist",
       "server"
     ]

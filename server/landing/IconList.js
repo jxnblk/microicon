@@ -1,19 +1,17 @@
 
 const { createElement: h } = require('react')
 
-const icons = require('../..')
-const relineKeys = require('../reline-keys')
-const geomiconsKeys = require('../geomicons-keys')
-const simpleKeys = Object.keys(icons.simple)
-const mdKeys = Object.keys(icons.material)
+const microicon = require('../..')
 const List = require('./List')
 const Panel = require('./Panel')
 const IconCard = require('./IconCard')
 
-const total = relineKeys.length
-  + geomiconsKeys.length
-  + simpleKeys.length
-  + mdKeys.length
+const { keys } = microicon
+
+const total = keys.geomicons.length
+  + keys.geomicons.length
+  + keys.geomicons.length
+  + keys.geomicons.length
 
 module.exports = () => (
   h('section', {},
@@ -34,7 +32,7 @@ module.exports = () => (
       open: true
     },
       h(List, {},
-        relineKeys.map((name, i) => (
+        keys.reline.map((name, i) => (
           h(IconCard, { key: i, name })
         ))
       )
@@ -43,7 +41,7 @@ module.exports = () => (
       title: 'Geomicons'
     },
       h(List, {},
-        geomiconsKeys.map((name, i) => (
+        keys.geomicons.map((name, i) => (
           h(IconCard, { key: i, name })
         ))
       )
@@ -52,7 +50,7 @@ module.exports = () => (
       title: 'Material Design'
     },
       h(List, {},
-        mdKeys.map((name, i) => (
+        keys.material.map((name, i) => (
           h(IconCard, { key: i, name })
         ))
       )
@@ -61,7 +59,7 @@ module.exports = () => (
       title: 'Simple Icons'
     },
       h(List, {},
-        simpleKeys.map((name, i) => (
+        keys.simple.map((name, i) => (
           h(IconCard, { key: i, name })
         ))
       )

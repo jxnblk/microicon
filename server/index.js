@@ -4,24 +4,24 @@ const path = require('path')
 const url = require('url')
 const { createElement: h } = require('react')
 const { renderToStaticMarkup } = require('react-dom/server')
-const Icon = require('./Icon')
-const relineKeys = require('./reline-keys')
-const geomiconsKeys = require('./geomicons-keys')
-const icons = require('..')
-console.log('icons', icons)
-const simpleKeys = Object.keys(icons.simple)
-const mdKeys = Object.keys(icons.material)
+
+const microicon = require('..')
+
+const { Icon, keys } = microicon
+const simpleKeys = Object.keys(microicon.simple)
+const mdKeys = Object.keys(microicon.material)
 
 const Root = require('./landing/Root')
 const card = require('./landing/card')
 
 const doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
 
-const iconsLength = relineKeys.length
-  + geomiconsKeys.length
-  + simpleKeys.length
-  + mdKeys.length
+const iconsLength = keys.reline.length
+  + keys.geomicons.length
+  + keys.simple.length
+  + keys.material.length
 
+// Is this being used anymore?
 const usage = `
 microicon
 
@@ -45,22 +45,22 @@ ${iconsLength} Icons:
 
   Reline
 
-  ${relineKeys.join('\n  ')}
+  ${keys.reline.join('\n  ')}
 
 
   Geomicons
 
-  ${geomiconsKeys.join('\n  ')}
+  ${keys.geomicons.join('\n  ')}
 
 
   Material Design
 
-  ${mdKeys.join('\n  ')}
+  ${keys.material.join('\n  ')}
 
 
   Simple Icons
 
-  ${simpleKeys.join('\n  ')}
+  ${keys.simple.join('\n  ')}
 `
 
 const num = v => !isNaN(parseFloat(v)) ? parseFloat(v) : v

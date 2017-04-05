@@ -2,16 +2,18 @@
 // todo
 // const { paths: reline } = require('reline')
 const geomicons = require('geomicons-open')
-const material = require('./dist/material-design-icons')
-const simple = require('./dist/simple-icons')
-const Icon = require('./server/Icon')
+const material = require('./lib/material-design-icons')
+const simple = require('./lib/simple-icons')
+const keys = require('./lib/keys')
+const Icon = require('./lib/Icon')
 
 module.exports = Object.assign({
+  Icon,
+  keys,
   geomicons,
   material,
   simple
 },
-  Icon,
   geomicons,
   material,
   simple

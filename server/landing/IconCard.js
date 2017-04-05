@@ -1,6 +1,6 @@
 
 const { createElement: h } = require('react')
-const Icon = require('../Icon')
+const { Icon } = require('../..')
 
 module.exports = ({ name }) => (
   h('div', {
