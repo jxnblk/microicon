@@ -9,9 +9,9 @@ const IconCard = require('./IconCard')
 const { keys } = microicon
 
 const total = keys.geomicons.length
-  + keys.geomicons.length
-  + keys.geomicons.length
-  + keys.geomicons.length
+  + keys.reline.length
+  + keys.material.length
+  + keys.simple.length
 
 module.exports = () => (
   h('section', {},

@@ -21,48 +21,6 @@ const iconsLength = keys.reline.length
   + keys.simple.length
   + keys.material.length
 
-// Is this being used anymore?
-const usage = `
-microicon
-
-SVG icon microservice
-
-Usage:
-https://icon.now.sh/chevron
-
-Size:
-https://icon.now.sh/chevron/32
-
-Color:
-https://icon.now.sh/chevron/ff0000
-
-Read more:
-https://github.com/jxnblk/microicon
-
-Made by jxnblk.com
-
-${iconsLength} Icons:
-
-  Reline
-
-  ${keys.reline.join('\n  ')}
-
-
-  Geomicons
-
-  ${keys.geomicons.join('\n  ')}
-
-
-  Material Design
-
-  ${keys.material.join('\n  ')}
-
-
-  Simple Icons
-
-  ${keys.simple.join('\n  ')}
-`
-
 const num = v => !isNaN(parseFloat(v)) ? parseFloat(v) : v
 
 const parseNumbers = obj => Object.keys(obj).reduce((a, key) => {
