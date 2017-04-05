@@ -1,6 +1,6 @@
 {
   "name": "microicon",
-  "version": "1.0.0-b.1",
+  "version": "1.0.0-b.2",
   "description": "Icon placeholder microservice and node module",
   "main": "index.js",
   "scripts": {
