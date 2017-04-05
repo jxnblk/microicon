@@ -41,9 +41,32 @@ const mdFiles = mdKeys.reduce((a, key) => {
   return a
 }, {})
 
-const getPath = root => {
-  const d = root('path').attr('d')
+const getPath = $ => {
+  const d = $('path').attr('d')
   return d
+}
+
+const getCircles = $ => {
+  const circles = []
+  $('circle').map((i, el) => {
+    const cx = parseFloat($(el).attr('cx'))
+    const cy = parseFloat($(el).attr('cy'))
+    const r = parseFloat($(el).attr('r'))
+    circles.push({ cx, cy, r })
+  })
+  return circles
+}
+
+const convertCircleToPath = circle => {
+  const { cx, cy, r } = circle
+  const x = cx
+  const y1 = cy - r
+  const y2 = cy + r
+  return [
+    'M', x, y1,
+    'A', r, r, 0, 0, 0, x, y2,
+    'A', r, r, 0, 0, 0, x, y1
+  ].join(' ')
 }
 
 const getContents = dir => filename => fs.readFileSync(path.join(dir, filename), 'utf8')
@@ -51,8 +74,15 @@ const getContents = dir => filename => fs.readFileSync(path.join(dir, filename),
 const createPaths = dir => filenames => {
   const paths = filenames.map(f => {
     const svg = getContents(dir)(f)
-    const root = cheerio.load(svg)
-    const value = getPath(root)
+    const $ = cheerio.load(svg)
+    const path = getPath($)
+
+    const circles = getCircles($)
+      .map(convertCircleToPath)
+      .join(' ')
+
+    const value = [ path, circles ].join(' ')
+
     const key = f.replace(/\.svg$/, '')
       .replace(/^ic_/, '')
       .replace(/_24px$/, '')
