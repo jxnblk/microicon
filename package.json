@@ -4,11 +4,9 @@
   "description": "Icon placeholder microservice and node module",
   "main": "index.js",
   "scripts": {
-    "_build": "npm run _postinstall && npm run icons && npm run webpack",
-    "icons": "node build.js",
+    "build": "node build.js",
     "webpack": "webpack -p",
-    "_postinstall": "napa danleech/simple-icons#gh-pages",
-    "_start": "./node_modules/micro/bin/micro -p 3000 server/index.js",
+    "postinstall": "napa danleech/simple-icons#gh-pages",
     "start": "micro -p 3000 server/index.js",
     "dev": "nodemon --exec 'npm start'"
   },
@@ -43,8 +41,8 @@
   "now": {
     "alias": "icon.now.sh",
     "files": [
-      "server",
-      "server/landing"
+      "dist",
+      "server"
     ]
   }
 }

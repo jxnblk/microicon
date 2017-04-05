@@ -4,10 +4,15 @@
 const fs = require('fs')
 const path = require('path')
 const cheerio = require('cheerio')
-const geomiconsKeys = require('./server/geomicons-keys')
 
 // Simple Icons
 const simpleDir = path.join(__dirname, 'node_modules', 'simple-icons#gh-pages', 'icons')
+
+if (!fs.existsSync(simpleDir)) {
+  console.log('Could not find simple-icons')
+  return
+}
+
 const simpleFiles = fs.readdirSync(simpleDir)
   .filter(f => /\.svg$/.test(f))
 
@@ -117,10 +122,6 @@ const mdPaths = mdKeys.reduce((a, key) => {
 
 const mdFlattened = Object.keys(mdPaths).reduce((a, key, i) => {
   const paths = Object.keys(mdPaths[key]).reduce((arr, k) => {
-    // Doesn't seem to work
-    if (geomiconsKeys.includes(k)) {
-      k = 'md_' + k
-    }
     arr.push({
       key: k,
       value: mdPaths[key][k]
@@ -135,6 +136,11 @@ const mdFlattened = Object.keys(mdPaths).reduce((a, key, i) => {
 
 const mdJs = `module.exports = ${JSON.stringify(mdFlattened)}`
 
-fs.writeFileSync('server/simple-icons.js', simpleJs)
-fs.writeFileSync('server/material-design-icons.js', mdJs)
+const dist = path.join(__dirname, 'dist')
+if (!fs.existsSync(dist)) {
+  fs.mkdirSync(dist)
+}
+
+fs.writeFileSync('dist/simple-icons.js', simpleJs)
+fs.writeFileSync('dist/material-design-icons.js', mdJs)
 

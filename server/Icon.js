@@ -4,8 +4,8 @@ const { Icon: Reline } = require('reline')
 const Geomicon = require('react-geomicons').default
 const geomiconsKeys = require('./geomicons-keys')
 const relineKeys = require('./reline-keys')
-const simplePaths = require('./simple-icons')
-const mdPaths = require('./material-design-icons')
+const simplePaths = require('../dist/simple-icons')
+const mdPaths = require('../dist/material-design-icons')
 
 const simpleKeys = Object.keys(simplePaths)
 const mdKeys = Object.keys(mdPaths)

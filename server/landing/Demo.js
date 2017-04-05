@@ -2,8 +2,9 @@
 const { createElement: h } = require('react')
 const relineKeys = require('../reline-keys')
 const geomiconsKeys = require('../geomicons-keys')
-const simpleKeys = Object.keys(require('../simple-icons'))
-const mdKeys = Object.keys(require('../material-design-icons'))
+const icons = require('../..')
+const simpleKeys = Object.keys(icons.simple)
+const mdKeys = Object.keys(icons.material)
 const Pre = require('./Pre')
 
 const keys = [
