@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node build.js",
+    "build": "npm run postinstall && node build.js && webpack -p",
     "postinstall": "napa danleech/simple-icons#gh-pages",
-    "start": "./node_modules/micro/bin/micro -p 3000"
+    "start": "./node_modules/micro/bin/micro -p 3000",
+    "dev": "nodemon --exec 'npm start'"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,11 @@
     "reline": "^1.0.0-beta.3"
   },
   "devDependencies": {
-    "cheerio": "^0.22.0"
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "cheerio": "^0.22.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^1.13.3"
   }
 }
