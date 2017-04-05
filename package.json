@@ -1,15 +1,24 @@
 {
   "name": "microicon",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.0-b.0",
+  "description": "Icon placeholder microservice and node module",
   "main": "index.js",
   "scripts": {
-    "build": "npm run postinstall && node build.js && webpack -p",
+    "build": "npm run postinstall && npm run icons && npm run webpack",
+    "icons": "node build.js",
+    "webpack": "webpack -p",
     "postinstall": "napa danleech/simple-icons#gh-pages",
-    "start": "./node_modules/micro/bin/micro -p 3000",
+    "start": "./node_modules/micro/bin/micro server.js -p 3000",
     "dev": "nodemon --exec 'npm start'"
   },
-  "keywords": [],
+  "keywords": [
+    "icons",
+    "logos",
+    "geomicons",
+    "simple-icons",
+    "material-design",
+    "material-design-icons"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
