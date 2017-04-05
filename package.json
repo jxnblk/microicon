@@ -43,7 +43,9 @@
   "now": {
     "alias": "icon.now.sh",
     "files": [
-      "bundle.js"
+      "bundle.js",
+      "landing",
+      "server.js"
     ]
   }
 }
