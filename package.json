@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node build.js && webpack -p",
+    "build": "npm run postinstall && node build.js && webpack -p",
     "postinstall": "napa danleech/simple-icons#gh-pages",
     "start": "./node_modules/micro/bin/micro -p 3000",
     "dev": "nodemon --exec 'npm start'"
