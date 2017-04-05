@@ -4,7 +4,7 @@
   "description": "Icon placeholder microservice and node module",
   "main": "index.js",
   "scripts": {
-    "build": "npm run postinstall && npm run icons && npm run webpack",
+    "_build": "npm run postinstall && npm run icons && npm run webpack",
     "icons": "node build.js",
     "webpack": "webpack -p",
     "postinstall": "napa danleech/simple-icons#gh-pages",
@@ -19,7 +19,7 @@
     "material-design",
     "material-design-icons"
   ],
-  "author": "",
+  "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
     "material-design-icons": "^3.0.1",
@@ -37,6 +37,12 @@
     "babel-preset-es2015": "^6.18.0",
     "cheerio": "^0.22.0",
     "nodemon": "^1.11.0",
-    "webpack": "^1.13.3"
+    "webpack": "^2.3.3"
+  },
+  "now": {
+    "alias": "icon.now.sh",
+    "files": [
+      "bundle.js"
+    ]
   }
 }
