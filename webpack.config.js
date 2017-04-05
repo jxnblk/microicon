@@ -1,11 +1,12 @@
 
 const webpack = require('webpack')
+const path = require('path')
 
 module.exports = {
-  entry: './landing/entry.js',
+  entry: './server/landing/entry.js',
 
   output: {
-    path: __dirname,
+    path: path.join(__dirname, 'server'),
     filename: 'bundle.js'
   },
 

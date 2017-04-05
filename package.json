@@ -8,8 +8,8 @@
     "icons": "node build.js",
     "webpack": "webpack -p",
     "_postinstall": "napa danleech/simple-icons#gh-pages",
-    "_start": "./node_modules/micro/bin/micro -p 3000 server.js",
-    "start": "micro -p 3000 server.js",
+    "_start": "./node_modules/micro/bin/micro -p 3000 server/index.js",
+    "start": "micro -p 3000 server/index.js",
     "dev": "nodemon --exec 'npm start'"
   },
   "keywords": [
@@ -43,9 +43,8 @@
   "now": {
     "alias": "icon.now.sh",
     "files": [
-      "bundle.js",
-      "landing",
-      "server.js"
+      "server",
+      "server/landing"
     ]
   }
 }

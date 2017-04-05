@@ -4,7 +4,7 @@
 const fs = require('fs')
 const path = require('path')
 const cheerio = require('cheerio')
-const geomiconsKeys = require('./geomicons-keys')
+const geomiconsKeys = require('./server/geomicons-keys')
 
 // Simple Icons
 const simpleDir = path.join(__dirname, 'node_modules', 'simple-icons#gh-pages', 'icons')
@@ -135,6 +135,6 @@ const mdFlattened = Object.keys(mdPaths).reduce((a, key, i) => {
 
 const mdJs = `module.exports = ${JSON.stringify(mdFlattened)}`
 
-fs.writeFileSync('simple-icons.js', simpleJs)
-fs.writeFileSync('material-design-icons.js', mdJs)
+fs.writeFileSync('server/simple-icons.js', simpleJs)
+fs.writeFileSync('server/material-design-icons.js', mdJs)
 
