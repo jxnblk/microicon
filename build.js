@@ -6,7 +6,7 @@ const path = require('path')
 const cheerio = require('cheerio')
 
 // Simple Icons
-const simpleDir = path.join(__dirname, 'node_modules', 'simple-icons#gh-pages', 'icons')
+const simpleDir = path.join(__dirname, 'node_modules', 'simple-icons', 'icons')
 
 if (!fs.existsSync(simpleDir)) {
   console.log('Could not find simple-icons')

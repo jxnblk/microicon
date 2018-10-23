@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build.js",
     "webpack": "webpack -p",
-    "prepublish": "napa danleech/simple-icons#gh-pages && npm run build",
+    "prepublish": "napa simple-icons/simple-icons#ee185e89d4fd936e2ce449c94fd4784106dde59a && npm run build",
     "start": "micro -p 3000 server/index.js",
     "dev": "nodemon --exec 'npm start'"
   },
