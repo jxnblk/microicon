@@ -1,6 +1,5 @@
-
 dist
 bundle.js
 material-design-icons.js
 simple-icons.js
-
+node_modules
