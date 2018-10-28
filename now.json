@@ -1,0 +1,9 @@
+{
+  "alias": "icon.now.sh",
+  "files": [
+    "index.js",
+    "build.js",
+    "lib",
+    "server"
+  ]
+}

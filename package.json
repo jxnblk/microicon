@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build.js",
     "webpack": "webpack -p",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "start": "micro -p 3000 server/index.js",
     "dev": "nodemon --exec 'npm start'"
   },
@@ -37,14 +37,5 @@
     "nodemon": "^1.11.0",
     "simple-icons": "^1.9.9",
     "webpack": "^2.3.3"
-  },
-  "now": {
-    "alias": "icon.now.sh",
-    "files": [
-      "index.js",
-      "build.js",
-      "lib",
-      "server"
-    ]
   }
 }
