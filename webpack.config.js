@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   mode: 'production',
-  entry: './server/landing/entry.js',
+  entry: path.join(__dirname, './server/landing/entry.js'),
 
   output: {
     path: path.join(__dirname, 'server'),
