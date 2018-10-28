@@ -4,9 +4,9 @@
   "description": "Icon placeholder microservice and node module",
   "main": "index.js",
   "scripts": {
+    "prepare": "npm run build && npm run webpack",
     "build": "node build.js",
     "webpack": "webpack -p",
-    "prepare": "npm run build",
     "start": "micro -p 3000 server/index.js",
     "dev": "nodemon --exec 'npm start'"
   },
