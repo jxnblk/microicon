@@ -1,4 +1,3 @@
-
 const { createElement: h } = require('react')
 
 module.exports = ({ title, children, open }) => (

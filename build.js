@@ -1,4 +1,3 @@
-
 // Node script for reading SVG icons and creating a paths JSON file
 
 const fs = require('fs')

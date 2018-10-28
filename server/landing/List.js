@@ -1,4 +1,3 @@
-
 const React = require('react')
 const { createElement: h } = React
 
