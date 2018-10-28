@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "npm run build && npm run webpack",
     "build": "node build.js",
-    "webpack": "webpack -p",
+    "webpack": "webpack",
     "start": "micro -p 3000 server/index.js",
     "dev": "nodemon --exec 'npm start'"
   },
