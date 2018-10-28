@@ -107,6 +107,7 @@ module.exports = (req, res) => {
   if (!svg.length) return 'No icon found for ' + name
 
   res.setHeader('Content-Type', 'image/svg+xml')
+  res.setHeader('Cache-Control', 'public, max-age=86400')
   res.end(doctype + svg)
 }
 
