@@ -35,7 +35,7 @@
     "cheerio": "^0.22.0",
     "material-design-icons": "^3.0.1",
     "nodemon": "^1.11.0",
-    "simple-icons": "^1.9.9",
+    "simple-icons": "^1.9.25",
     "webpack": "^2.3.3"
   },
   "now": {
