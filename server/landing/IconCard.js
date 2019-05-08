@@ -1,9 +1,8 @@
-
-const { createElement: h } = require('react')
-const { Icon } = require('../..')
+const React = require('react')
+const Icon = require('../../lib/Icon')
 
 module.exports = ({ name }) => (
-  h('div', {
+  React.createElement('div', {
     style: {
       marginTop: 16,
       marginBottom: 16,
@@ -11,14 +10,14 @@ module.exports = ({ name }) => (
       breakInside: 'avoid'
     }
   },
-    h('a', {
+    React.createElement('a', {
       href: `/${name}`,
       style: {
         color: 'inherit'
       }
     },
-      h(Icon, { name, size: 32 }),
-      h('div', {
+      React.createElement(Icon, { name, size: 32 }),
+      React.createElement('div', {
         style: {
           fontSize: 12,
           paddingTop: 8,

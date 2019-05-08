@@ -1,16 +1,15 @@
-
-const { createElement: h } = require('react')
+const React = require('react')
 
 module.exports = ({ title, children, open }) => (
-  h('details', { open },
-    h('summary', {
+  React.createElement('details', { open },
+    React.createElement('summary', {
       style: {
         fontSize: 24,
         fontWeight: 'bold',
         cursor: 'pointer'
       }
     }, title),
-    h('div', {}, children)
+    React.createElement('div', {}, children)
   )
 )
 

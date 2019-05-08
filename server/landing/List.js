@@ -1,10 +1,8 @@
-
 const React = require('react')
-const { createElement: h } = React
 
 const mapChildren = children => (
   React.Children.map(children, (child) => (
-    h('li', {
+    React.createElement('li', {
       style: {
         boxSizing: 'border-box',
         display: 'inline-block',
@@ -19,7 +17,7 @@ const mapChildren = children => (
 )
 
 module.exports = (props) => (
-  h('ul', {
+  React.createElement('ul', {
     className: 'List',
     style: {
       listStyle: 'none',
@@ -28,4 +26,3 @@ module.exports = (props) => (
     }
   }, mapChildren(props.children))
 )
-

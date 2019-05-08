@@ -1,8 +1,7 @@
-
-const { createElement: h } = require('react')
+const React = require('react')
 
 module.exports = (props) => (
-  h('pre', {
+  React.createElement('pre', {
     style: {
       fontFamily: 'Menlo, monospace',
       fontSize: 14,

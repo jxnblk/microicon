@@ -1,4 +1,3 @@
-
 const geomiconsPaths = require('geomicons-open')
 
 const blacklist = [
@@ -10,4 +9,3 @@ const blacklist = [
 
 module.exports = Object.keys(geomiconsPaths)
   .filter(k => blacklist.indexOf(k) < 0)
-

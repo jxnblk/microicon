@@ -1,4 +1,3 @@
-
 module.exports = [
   'x',
   'plus',
@@ -10,4 +9,3 @@ module.exports = [
   'diamond',
   'burger'
 ]
-

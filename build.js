@@ -1,4 +1,3 @@
-
 // Node script for reading SVG icons and creating a paths JSON file
 
 const fs = require('fs')
@@ -138,4 +137,3 @@ const mdJs = `module.exports = ${JSON.stringify(mdFlattened)}`
 
 fs.writeFileSync('lib/simple-icons.js', simpleJs)
 fs.writeFileSync('lib/material-design-icons.js', mdJs)
-
