@@ -1,5 +1,5 @@
 const React = require('react')
-const keys = require('../../lib/keys')
+const keys = require('../lib/keys')
 const List = require('./List')
 const Panel = require('./Panel')
 const IconCard = require('./IconCard')

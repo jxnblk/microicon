@@ -1,12 +1,10 @@
 const React = require('react')
-const relineKeys = require('../reline-keys')
-const geomiconsKeys = require('../geomicons-keys')
-const _keys = require('../../lib/keys')
+const _keys = require('../lib/keys')
 const Pre = require('./Pre')
 
 const keys = [
-  ...relineKeys,
-  ...geomiconsKeys,
+  ..._keys.reline,
+  ..._keys.geomicons,
   ..._keys.simple,
   ..._keys.material
 ]

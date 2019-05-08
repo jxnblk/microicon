@@ -1,5 +1,5 @@
 const React = require('react')
-const Icon = require('../../lib/Icon')
+const Icon = require('../lib/Icon')
 
 module.exports = ({ name }) => (
   React.createElement('div', {

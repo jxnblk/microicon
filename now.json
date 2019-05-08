@@ -2,5 +2,14 @@
   "public": true,
   "version": 2,
   "name": "microicon",
-  "alias": "icon.now.sh"
+  "alias": "icon.now.sh",
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "now-micro"
+    }
+  ],
+  "routes": [
+     { "src": "/(.*)", "dest": "/index.js" }
+  ]
 }

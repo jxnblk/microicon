@@ -1,23 +1,22 @@
-
-const { createElement: h } = require('react')
+const React = require('react')
 
 module.exports = () => (
-  h('footer', {
+  React.createElement('footer', {
     style: {
       paddingTop: '3rem',
       paddingBottom: '3rem',
     }
   },
-    h('p', {},
-      h('a', {
+    React.createElement('p', {},
+      React.createElement('a', {
         href: 'https://github.com/jxnblk/microicon'
       }, 'GitHub'),
-      h('span', {}, ' '),
-      h('a', {
+      React.createElement('span', {}, ' '),
+      React.createElement('a', {
         href: 'http://jxnblk.com'
       }, 'Made by Jxnblk'),
-      h('span', {}, ' '),
-      h('a', {
+      React.createElement('span', {}, ' '),
+      React.createElement('a', {
         href: 'https://zeit.co/now'
       }, 'Hosted on Now')
     )

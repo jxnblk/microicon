@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const url = require('url')
-const { createElement: h } = require('react')
+const React = require('react')
 const { renderToStaticMarkup } = require('react-dom/server')
 
 const keys = require('./lib/keys')
@@ -14,11 +14,6 @@ const Root = require('./landing/Root')
 const card = require('./landing/card')
 
 const doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
-
-const iconsLength = keys.reline.length
-  + keys.geomicons.length
-  + keys.simple.length
-  + keys.material.length
 
 const num = v => !isNaN(parseFloat(v)) ? parseFloat(v) : v
 
@@ -87,13 +82,13 @@ module.exports = (req, res) => {
 
   if (!name) {
     const html = renderToStaticMarkup(
-      h(Root)
+      React.createElement(Root)
     )
     return html
   }
 
   const svg = renderToStaticMarkup(
-    h(Icon, Object.assign({
+    React.createElement(Icon, Object.assign({
       name,
     }, params))
   )
