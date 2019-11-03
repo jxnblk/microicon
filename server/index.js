@@ -1,4 +1,3 @@
-
 const fs = require('fs')
 const path = require('path')
 const url = require('url')
@@ -10,9 +9,6 @@ const microicon = require('..')
 const { Icon, keys } = microicon
 const simpleKeys = Object.keys(microicon.simple)
 const mdKeys = Object.keys(microicon.material)
-
-const Root = require('./landing/Root')
-const card = require('./landing/card')
 
 const doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
 
@@ -58,7 +54,7 @@ const getParamKey = val => {
 }
 
 const parseUrl = url => {
-  const [ , name, ...args ] = url.split('/')
+  const [ name, ...args ] = url.split('/')
   const params = args.reduce((a, b) => {
     const obj = getParamKey(b)
     return Object.assign({}, a, obj)
@@ -68,35 +64,14 @@ const parseUrl = url => {
 }
 
 module.exports = (req, res) => {
-  if (/bundle\.js/.test(req.url)) {
-    res.writeHead(200, { 'Content-Type':  'text/html' })
-    fs.createReadStream(path.join(__dirname, 'bundle.js'))
-      .pipe(res)
-    return
-  }
-  if (/robots\.txt/.test(req.url)) {
-    return `User-agent: Twitterbot\n  Disallow:`
-  }
-  if (/card\.png/.test(req.url)) {
-    return card(req, res)
-  }
-
-  const { pathname, query } = url.parse(req.url, true)
+  const { pathname, query } = url.parse(req.query.path, true)
   const [ , name ] = pathname.split('/')
-  const params = Object.assign(
-    {
+  const params = Object.assign({
       size: 16
     },
-    parseUrl(req.url),
+    parseUrl(pathname),
     parseNumbers(query)
   )
-
-  if (!name) {
-    const html = renderToStaticMarkup(
-      h(Root)
-    )
-    return html
-  }
 
   const svg = renderToStaticMarkup(
     h(Icon, Object.assign({
@@ -110,4 +85,3 @@ module.exports = (req, res) => {
   res.setHeader('Cache-Control', 'public, max-age=86400')
   res.end(doctype + svg)
 }
-

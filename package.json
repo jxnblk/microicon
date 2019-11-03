@@ -1,48 +1,23 @@
 {
   "name": "microicon",
+  "private": true,
   "version": "1.0.0-b.2",
   "description": "Icon placeholder microservice and node module",
-  "main": "index.js",
   "scripts": {
-    "build": "node build.js",
-    "webpack": "webpack -p",
-    "prepublish": "npm run build",
-    "start": "micro -p 3000 server/index.js"
+    "prepublish": "node build.js",
+    "docs": "node docs.js",
+    "start": "now dev"
   },
-  "keywords": [
-    "icons",
-    "logos",
-    "geomicons",
-    "simple-icons",
-    "material-design",
-    "material-design-icons"
-  ],
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "micro": "^7.3.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-geomicons": "^2.1.0",
-    "react-simple-icons": "^1.0.0-beta.5",
-    "reline": "^1.0.0-beta.3"
-  },
-  "devDependencies": {
-    "babel-core": "^6.18.0",
-    "babel-loader": "^6.2.7",
-    "babel-preset-es2015": "^6.18.0",
     "cheerio": "^0.22.0",
+    "geomicons-open": "^3.0.0-beta.1",
     "material-design-icons": "^3.0.1",
-    "simple-icons": "^1.9.25",
-    "webpack": "^2.3.3"
-  },
-  "now": {
-    "alias": "icon.now.sh",
-    "files": [
-      "index.js",
-      "build.js",
-      "lib",
-      "server"
-    ]
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-simple-icons": "^1.0.0-beta.5",
+    "reline": "^1.0.0-beta.3",
+    "simple-icons": "^1.9.25"
   }
 }
