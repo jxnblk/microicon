@@ -7,7 +7,7 @@
     "dev": "now dev",
     "prepublish": "node build.js",
     "__webpack": "webpack -p",
-    "start": "micro -p 3000 server/index.js"
+    "start": "now dev"
   },
   "keywords": [
     "icons",
@@ -35,14 +35,5 @@
     "material-design-icons": "^3.0.1",
     "simple-icons": "^1.9.25",
     "webpack": "^2.3.3"
-  },
-  "now": {
-    "alias": "icon.now.sh",
-    "files": [
-      "index.js",
-      "build.js",
-      "lib",
-      "server"
-    ]
   }
 }

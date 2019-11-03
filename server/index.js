@@ -64,18 +64,7 @@ const parseUrl = url => {
 }
 
 module.exports = (req, res) => {
-  // if (/bundle\.js/.test(req.url)) {
-  //   res.writeHead(200, { 'Content-Type':  'text/html' })
-  //   fs.createReadStream(path.join(__dirname, 'bundle.js'))
-  //     .pipe(res)
-  //   return
-  // }
-  if (/robots\.txt/.test(req.url)) {
-    return `User-agent: Twitterbot\n  Disallow:`
-  }
-  // if (/card\.png/.test(req.url)) return card(req, res)
-
-  const { pathname, query } = url.parse(req.url, true)
+  const { pathname, query } = url.parse(req.query.path, true)
   const [ , name ] = pathname.split('/')
   const params = Object.assign({
       size: 16
@@ -83,17 +72,6 @@ module.exports = (req, res) => {
     parseUrl(req.url),
     parseNumbers(query)
   )
-
-  if (!name) return 'microicon'
-
-  /*
-  if (!name) {
-    const html = renderToStaticMarkup(
-      h(Root)
-    )
-    return html
-  }
-  */
 
   const svg = renderToStaticMarkup(
     h(Icon, Object.assign({

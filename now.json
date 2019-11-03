@@ -4,11 +4,23 @@
   "alias": "icon.now.sh",
   "builds": [
     {
+      "src": "www/index.html",
+      "use": "@now/static"
+    },
+    {
       "src": "server/index.js",
       "use": "@now/node"
     }
   ],
   "routes": [
+    {
+      "src": "/",
+      "dest": "/www/index.html"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/www/robots.txt"
+    },
     {
       "src": "/(.*)",
       "dest": "/server?path=$1"
