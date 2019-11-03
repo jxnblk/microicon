@@ -41,7 +41,7 @@ https://icon.now.sh/chevron/?strokeWidth=1
 
 ## Icons
 
-For a complete list of icons see: <icons.md>
+For a complete list of icons see: [`icons.md`](icons.md)
 
 
 MIT License
