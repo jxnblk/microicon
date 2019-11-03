@@ -54,7 +54,7 @@ const getParamKey = val => {
 }
 
 const parseUrl = url => {
-  const [ , name, ...args ] = url.split('/')
+  const [ name, ...args ] = url.split('/')
   const params = args.reduce((a, b) => {
     const obj = getParamKey(b)
     return Object.assign({}, a, obj)
@@ -69,7 +69,7 @@ module.exports = (req, res) => {
   const params = Object.assign({
       size: 16
     },
-    parseUrl(req.url),
+    parseUrl(pathname),
     parseNumbers(query)
   )
 

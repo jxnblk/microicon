@@ -1,4 +1,4 @@
-const geomicons = require('geomicons-open')
+const geomicons = require('geomicons-open/src')
 const material = require('./lib/material-design-icons')
 const simple = require('./lib/simple-icons')
 const keys = require('./lib/keys')
