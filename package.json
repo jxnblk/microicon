@@ -5,6 +5,7 @@
   "description": "Icon placeholder microservice and node module",
   "scripts": {
     "prepublish": "node build.js",
+    "docs": "node docs.js",
     "start": "now dev"
   },
   "author": "Brent Jackson",
