@@ -1,6 +1,3 @@
-
-// todo
-// const { paths: reline } = require('reline')
 const geomicons = require('geomicons-open')
 const material = require('./lib/material-design-icons')
 const simple = require('./lib/simple-icons')

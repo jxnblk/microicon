@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "name": "microicon",
+  "alias": "icon.now.sh",
+  "builds": [
+    {
+      "src": "server/index.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/server?path=$1"
+    }
+  ]
+}
