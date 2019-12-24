@@ -38,10 +38,10 @@ const getParamKey = val => {
   const n = num(val)
   if (!val.length) {
     return null
-  } else if (isHex(val)) {
-    return { color: '#' + val }
   } else if (!isNaN(n)) {
     return { size: n }
+  } else if (isHex(val)) {
+    return { color: '#' + val }
   } else if (type === 'string' && !/\-/.test(val)) {
     return { [val]: true }
   } else if (type === 'string' && /\-/.test(val)) {
